@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>jp.ac.shibaura.it.ie</groupId>
-    <artifactId>chatServer</artifactId>
+    <artifactId>chatAppServer</artifactId>
     <version>1.0</version>
 
     <properties>

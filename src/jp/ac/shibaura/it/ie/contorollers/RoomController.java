@@ -39,21 +39,4 @@ public class RoomController {
         return roomStartInteractor.handle(inputData);
     }
 
-    @RequestMapping(value = "/{roomId}/exit", method = RequestMethod.GET)
-    public OutputData roomExit(@RequestHeader("session") String session,  @PathVariable("roomId") String roomId) {
-        if(!sessionInteractor.handle(new SessionInputData(session)).isSuccess()){
-            logger.info("fdf");
-            throw  new RuntimeException();
-        }
-        return roomExitInteractor.handle(new RoomExitInputData(session, roomId));
-    }
-
-    @RequestMapping(value = "/{roomId}/wait", method = RequestMethod.GET)
-    public OutputData roomWait(@RequestHeader("session") String session, @PathVariable("roomId") String roomId) {
-        if(!sessionInteractor.handle(new SessionInputData(session)).isSuccess()){
-            logger.info("fdf");
-            throw  new RuntimeException();
-        }
-        return roomWaitInteractor.handle(new RoomWaitInputData(session, roomId));
-    }
 }
