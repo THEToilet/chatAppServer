@@ -21,8 +21,7 @@ public class MySQLComm {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             String target = Config.get().getDBUrl() + ":" + Config.get().getDBPort() + "/" + Config.get().getDBName();
-           // conn = DriverManager.getConnection(target, Config.get().getDBUserId(), Config.get().getDBPassword());
-            conn = DriverManager.getConnection("jdbc:mysql://sql.yamazaki.se.shibaura-it.ac.jp:13308/db_group_a", "group_a", "group_a");
+            conn = DriverManager.getConnection(target, Config.get().getDBUserId(), Config.get().getDBPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }

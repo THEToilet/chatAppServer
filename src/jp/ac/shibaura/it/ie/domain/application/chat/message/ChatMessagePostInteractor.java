@@ -1,8 +1,8 @@
 package jp.ac.shibaura.it.ie.domain.application.chat.message;
 
+import jp.ac.shibaura.it.ie.config.Config;
 import jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository;
 import jp.ac.shibaura.it.ie.domain.model.chat.Message;
-import jp.ac.shibaura.it.ie.domain.model.image.Image;
 import jp.ac.shibaura.it.ie.domain.model.image.ImageRepository;
 import jp.ac.shibaura.it.ie.domain.model.imgur.ImgurData;
 import jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostInputData;
@@ -17,7 +17,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Locale;
 import java.util.UUID;
 
 @Component
@@ -32,7 +31,7 @@ public class ChatMessagePostInteractor implements ChatMessagePostUseCase {
 
         // header設定
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Client-ID aca4e9e2468f686");
+        headers.add("Authorization", "Client-ID " + Config.get().getClientId());
 
         // body設定
         MultiValueMap<String, String> body = new LinkedMultiValueMap<>();

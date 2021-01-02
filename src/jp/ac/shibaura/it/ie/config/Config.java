@@ -18,21 +18,25 @@ public class Config {
     store.put("DBName", System.getenv("DB_NAME") != null ? System.getenv("DB_NAME") : "");
     store.put("DBUserId", System.getenv("DB_USER_ID") != null ? System.getenv("DB_USER_ID") : "");
     store.put("DBPassword", System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD") : "");
+    store.put("ClientId", System.getenv("CLIENT_ID") != null ? System.getenv("CLIENT_ID") : "");
   }
 
   public String getDBUrl() {
-    return store.get("DB_URL");
+    return store.get("DBURL");
   }
   public String getDBPort() {
-    return store.get("DB_PORT");
+    return store.get("DBPort");
   }
   public String getDBName() {
-    return store.get("DB_NAME");
+    return store.get("DBName");
   }
   public String getDBUserId() {
-    return store.get("DB_USER_ID");
+    return store.get("DBUserId");
   }
   public String getDBPassword() {
-    return store.get("DB_PASSWORD");
+    return store.get("DBPassword");
+  }
+  public String getClientId() {
+    return store.get("ClientId");
   }
 }
