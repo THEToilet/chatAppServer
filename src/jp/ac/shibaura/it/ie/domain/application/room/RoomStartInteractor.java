@@ -1,6 +1,5 @@
 package jp.ac.shibaura.it.ie.domain.application.room;
 
-import com.google.inject.Inject;
 import jp.ac.shibaura.it.ie.domain.model.chat.Chat;
 import jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository;
 import jp.ac.shibaura.it.ie.domain.model.room.Room;
@@ -27,12 +26,11 @@ public class RoomStartInteractor implements RoomStartUseCase {
 
     @Override
     public RoomStartOutputData handle(RoomStartInputData inputData) {
-        List<User> users = inputData.getUsers();
-        List<String> sessions = inputData.getSessions();
+        List<UserSession> users = inputData.getUsers();
         Room room = new Room(inputData.getRoomId(), inputData.getCategoryId());
         roomRepository.save(room);
-        for(int i=0;i<sessions.size();i++){
-            sessionRepository.save(sessions.get(i),users.get(i).getId().getValue());
+        for(int i=0;i<users.size();i++){
+            sessionRepository.save(users.get(i).getSession(),users.get(i).getId().getValue());
         }
         chatRepository.save(inputData.getRoomId(), new Chat(inputData.getRoomId()));
 

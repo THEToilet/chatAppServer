@@ -1,20 +1,18 @@
 package jp.ac.shibaura.it.ie.usecases.room.start;
 
 import jp.ac.shibaura.it.ie.domain.model.user.User;
-import jp.ac.shibaura.it.ie.domain.model.user.UserPassword;
+import jp.ac.shibaura.it.ie.domain.model.user.UserSession;
 import jp.ac.shibaura.it.ie.usecases.core.InputData;
 
 import java.util.List;
 
 public class RoomStartInputData implements InputData<RoomStartOutputData> {
-    private final List<User> users;
-    private final List<String> sessions;
+    private final List<UserSession> users;
     private final String roomId;
     private final String categoryId;
 
-    public RoomStartInputData(List<User> users, List<String> sessions, String roomId, String categoryId) {
+    public RoomStartInputData(List<UserSession> users, List<String> sessions, String roomId, String categoryId) {
         this.users = users;
-        this.sessions = sessions;
         this.roomId = roomId;
         this.categoryId = categoryId;
     }
@@ -23,11 +21,8 @@ public class RoomStartInputData implements InputData<RoomStartOutputData> {
         return roomId;
     }
 
-    public List<String> getSessions() {
-        return this.sessions;
-    }
 
-    public List<User> getUsers() {
+    public List<UserSession> getUsers() {
         return this.users;
     }
 

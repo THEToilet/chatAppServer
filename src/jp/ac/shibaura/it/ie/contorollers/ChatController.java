@@ -61,8 +61,8 @@ public class ChatController {
 
     @RequestMapping(value = "/{roomId}/{messageId}/stamp/post", method = RequestMethod.POST)
     @ResponseBody
-    public OutputData stampPost(@RequestHeader("session") String session , @RequestHeader("roomId") String roomId,@RequestParam("stampId") String stampId) {
-        return chatStampPostInteractor.handle(new ChatStampPostInputData(session,roomId, stampId));
+    public OutputData stampPost(@RequestHeader("session") String session, @RequestHeader("MeesageId") String messageId, @RequestHeader("roomId") String roomId, @RequestParam("stampId") String stampId) {
+        return chatStampPostInteractor.handle(new ChatStampPostInputData(session, roomId, messageId, stampId));
     }
 
     @RequestMapping(value = "/{roomId}/exit", method = RequestMethod.GET)

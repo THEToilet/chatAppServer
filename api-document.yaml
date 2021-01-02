@@ -175,9 +175,6 @@ paths:
             schema:
               type: object
               properties:
-                messageId:
-                  type: string
-                  description: スタンプを押したメッセージのId
                 userName:
                   type: string
                   description: 押したユーザの名前（自分の名前）
@@ -185,7 +182,6 @@ paths:
                   type: string
                   description: 押したスタンプのId
               required:
-                - messageId
                 - userName
                 - stampId
       operationId: '4'

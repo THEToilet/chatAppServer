@@ -13,4 +13,7 @@ public class ChatMessageUpdateOutputData implements OutputData {
 
     private ChatMessageUpdateOutputData(){}
 
+    public List<Message> getMessageList() {
+        return messageList;
+    }
 }

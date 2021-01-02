@@ -5,11 +5,13 @@ import jp.ac.shibaura.it.ie.usecases.core.InputData;
 public class ChatStampPostInputData implements InputData<ChatStampPostOutputData> {
     private final String session;
     private final String roomId;
+    private final String messageId;
     private final String stampId;
 
-    public ChatStampPostInputData(String session, String roomId, String stampId) {
+    public ChatStampPostInputData(String session, String roomId,String messageId, String stampId) {
         this.session = session;
         this.roomId = roomId;
+        this.messageId = messageId;
         this.stampId = stampId;
     }
 
@@ -19,6 +21,10 @@ public class ChatStampPostInputData implements InputData<ChatStampPostOutputData
 
     public String getRoomId() {
         return roomId;
+    }
+
+    public String getMessageId() {
+        return messageId;
     }
 
     public String getStampId() {
