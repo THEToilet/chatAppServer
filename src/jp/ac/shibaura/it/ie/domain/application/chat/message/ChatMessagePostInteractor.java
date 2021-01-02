@@ -1,15 +1,17 @@
 package jp.ac.shibaura.it.ie.domain.application.chat.message;
 
-import jp.ac.shibaura.it.ie.usecases.chat.exit.message.post.ChatMessagePostInputData;
-import jp.ac.shibaura.it.ie.usecases.chat.exit.message.post.ChatMessagePostOutputData;
-import jp.ac.shibaura.it.ie.usecases.chat.exit.message.post.ChatMessagePostUseCase;
+import jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostInputData;
+import jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostOutputData;
+import jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostUseCase;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+@Component
 public class ChatMessagePostInteractor implements ChatMessagePostUseCase {
     @Override
     public ChatMessagePostOutputData handle(ChatMessagePostInputData inputData) {

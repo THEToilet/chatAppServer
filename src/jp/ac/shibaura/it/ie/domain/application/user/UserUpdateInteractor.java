@@ -2,7 +2,6 @@ package jp.ac.shibaura.it.ie.domain.application.user;
 
 import com.google.inject.Inject;
 import jp.ac.shibaura.it.ie.domain.model.user.*;
-import jp.ac.shibaura.it.ie.usecases.user.add.UserAddOutputData;
 import jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateInputData;
 import jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateOutputData;
 import jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateUseCase;
