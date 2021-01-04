@@ -2,6 +2,7 @@ package jp.ac.shibaura.it.ie.test;
 
 import jp.ac.shibaura.it.ie.config.Config;
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.*;
 
 public class ConfigTest {
 
@@ -12,5 +13,7 @@ public class ConfigTest {
         System.out.println(Config.get().getDBUrl());
         System.out.println(Config.get().getDBPassword());
         System.out.println(Config.get().getDBUserId());
+        assertThat(Config.get().getDBName()).isEqualTo("db_group_a");
+        assertThat(Config.get().getDBPort()).isEqualTo("13308");
     }
 }

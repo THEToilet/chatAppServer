@@ -20,13 +20,13 @@ public class MySQLUserRepository implements UserRepository {
         MySQLComm comm = MySQLComm.getInstance();
         logger.info(String.format("insert into user(id, name, password) values (%s,%s,%s);", user.getId().getValue(), user.getName().getValue(), user.getPass().getValue()));
         //comm.sqlExecuteUpdate(String.format("insert into user(id, name, password) values (%s,%s,%s);", user.getId().getValue(), user.getName().getValue(), user.getPass().getValue()));
-        return comm.sqlExecuteUpdate(String.format("insert into user(id, name, password) values (22,'%s','%s');", user.getName().getValue(), user.getPass().getValue()));
+        return comm.sqlExecuteUpdate(String.format("insert into user(id, name, password) values ('%s','%s','%s');", user.getId().getValue(), user.getName().getValue(), user.getPass().getValue()));
     }
 
     @Override
     public void update(User user) {
         MySQLComm comm = MySQLComm.getInstance();
-        comm.sqlExecuteUpdate(String.format("update user set name = %s where id = %s;", user.getName(), user.getId()));
+        comm.sqlExecuteUpdate(String.format("update user set name = '%s' where id = '%s';", user.getName().getValue(), user.getId().getValue()));
     }
 
     @Override

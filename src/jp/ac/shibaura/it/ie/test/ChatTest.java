@@ -6,6 +6,7 @@ import jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostInputData;
 import jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostOutputData;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -253,6 +254,7 @@ public class ChatTest {
                 "SUVORK5CYII=";
 
         ChatMessagePostOutputData outputData = chatMessagePostInteractor.handle(new ChatMessagePostInputData(UUID.randomUUID().toString(),UUID.randomUUID().toString(), iimage ));
+
     }
 
 
