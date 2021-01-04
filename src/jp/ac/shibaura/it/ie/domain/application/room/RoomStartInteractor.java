@@ -6,6 +6,7 @@ import jp.ac.shibaura.it.ie.domain.model.room.Room;
 import jp.ac.shibaura.it.ie.domain.model.room.RoomRepository;
 import jp.ac.shibaura.it.ie.domain.model.session.SessionRepository;
 import jp.ac.shibaura.it.ie.domain.model.user.*;
+import jp.ac.shibaura.it.ie.log.LogUtils;
 import jp.ac.shibaura.it.ie.usecases.room.start.RoomStartInputData;
 import jp.ac.shibaura.it.ie.usecases.room.start.RoomStartOutputData;
 import jp.ac.shibaura.it.ie.usecases.room.start.RoomStartUseCase;
@@ -23,20 +24,19 @@ public class RoomStartInteractor implements RoomStartUseCase {
     private RoomRepository roomRepository;
     @Autowired
     private ChatRepository chatRepository;
+    @Autowired
+    private LogUtils logger;
 
     @Override
     public RoomStartOutputData handle(RoomStartInputData inputData) {
         RoomStartData roomStartData = inputData.getRoomStartData();
-        /*
-        Room room = new Room(inputData.getRoomId(), inputData.getCategoryId());
+        Room room = new Room(inputData.getRoomId(), inputData.getRoomStartData().getCategoryId());
         roomRepository.save(room);
-        for(int i=0;i<users.size();i++){
-            sessionRepository.save(users.get(i).getSession(),users.get(i).getId().getValue());
+        for (int i = 0; i < inputData.getRoomStartData().getUsers().size(); i++) {
+            sessionRepository.save(inputData.getRoomStartData().getUsers().get(i).getSession(), inputData.getRoomStartData().getUsers().get(i).getUserId());
+            logger.info("room/start" + inputData.getRoomStartData().getUsers().get(i).getSession() + ":" + inputData.getRoomStartData().getUsers().get(i).getUserId());
         }
         chatRepository.save(inputData.getRoomId(), new Chat(inputData.getRoomId()));
-
-         */
-
 
         return new RoomStartOutputData();
     }

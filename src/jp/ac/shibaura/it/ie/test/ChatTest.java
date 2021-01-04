@@ -253,7 +253,7 @@ public class ChatTest {
                 "Tr2WVJtAvFQppFwg70A/XaLsTxULe2YWjCxaDGRbLsx1pd5TbzmWsIQFhf8HuB3qSptzxNgAAAAA\n" +
                 "SUVORK5CYII=";
 
-        ChatMessagePostOutputData outputData = chatMessagePostInteractor.handle(new ChatMessagePostInputData(UUID.randomUUID().toString(),UUID.randomUUID().toString(), iimage ));
+        ChatMessagePostOutputData outputData = chatMessagePostInteractor.handle(new ChatMessagePostInputData(UUID.randomUUID().toString(),UUID.randomUUID().toString(), iimage ,"test", "png"));
 
     }
 

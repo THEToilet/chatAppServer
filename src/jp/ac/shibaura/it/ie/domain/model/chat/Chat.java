@@ -21,4 +21,8 @@ public class Chat {
     public void updateMessage(String messageId, Message message){
         messages.replace(messageId,message);
     }
+
+    public LinkedHashMap<String, Message> getMessageList() {
+        return messages;
+    }
 }

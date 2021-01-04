@@ -5,23 +5,20 @@ import jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository;
 import jp.ac.shibaura.it.ie.domain.model.chat.Message;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @Component
 public class InMemoryChatRepository implements ChatRepository {
+    private Map<String, Chat> chatMap = new LinkedHashMap<>();
     @Override
-    public List<Message> findAll(String roomId) {
-        return null;
-    }
-
-    @Override
-    public boolean save(String roomId, Chat chat) {
-        return false;
+    public void save(String roomId, Chat chat) {
+        chatMap.put(roomId,chat);
     }
 
     @Override
     public Optional<Chat> find(String roomId) {
-        return Optional.empty();
+        return Optional.ofNullable(chatMap.get(roomId));
     }
 }

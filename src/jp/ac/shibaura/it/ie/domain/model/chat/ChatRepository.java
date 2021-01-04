@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ChatRepository {
-    public boolean save(String roomId, Chat chat);
+    public void save(String roomId, Chat chat);
     public Optional<Chat> find(String roomId);
-    public List<Message> findAll(String roomId);
 }

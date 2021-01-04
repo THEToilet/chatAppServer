@@ -26,13 +26,13 @@ public class InMemoryRoomRepository implements RoomRepository {
     }
 
     @Override
-    public List<Room> findAll(String categoeyId) {
+    public List<Room> findAll(String categoryId) {
         List<Room> tmpRooms = new ArrayList<>();
         for (Iterator<String> iterator = rooms.keySet().iterator(); iterator.hasNext(); ) {
             String key = iterator.next();
             System.out.println(key + " => " + rooms.get(key));
             Room room = rooms.get(key);
-            if (room.getCategoryId() == categoeyId) {
+            if (room.getCategoryId() == categoryId) {
                 tmpRooms.add(room);
             }
         }

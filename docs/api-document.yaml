@@ -41,12 +41,16 @@ paths:
                 imageSource:
                   type: string
                   description: 送信する画像ソース(base64変換されている)
-                timeStamp:
+                fileName:
                   type: string
-                  description: 送信日時
+                  description: ファイル名
+                fileExtension:
+                  type: string
+                  description: ファイル拡張子情報
               required:
                 - imageSource
-                - timeStamp
+                - fileName
+                - fileExtension
         description: メッセージ
       operationId: '1'
     parameters:
@@ -82,7 +86,7 @@ paths:
                     required:
                       - messageId
                       - postedUserName
-                      - imageURL
+                      - imageUrl
                       - stampList
                     properties:
                       messageId:
@@ -91,7 +95,7 @@ paths:
                       postedUserName:
                         type: string
                         description: 送信したユーザ名
-                      imageURL:
+                      imageUrl:
                         type: string
                         description: 画像URL
                       stampList:

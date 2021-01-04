@@ -15,6 +15,7 @@ import java.util.Optional;
 public class MySQLUserRepository implements UserRepository {
     @Autowired
     private LogUtils logger;
+
     @Override
     public boolean save(User user) {
         MySQLComm comm = MySQLComm.getInstance();
@@ -52,14 +53,16 @@ public class MySQLUserRepository implements UserRepository {
     @Override
     public Optional<User> find(String userId) {
         MySQLComm comm = MySQLComm.getInstance();
-        ResultSet rs = comm.sqlExecuteQuery(String.format("select * from user where id = %s;", userId));
+        ResultSet rs = comm.sqlExecuteQuery(String.format("select * from user where id = '%s';", userId));
         User user = null;
         try {
-            user = new User(
-                    new UserId(rs.getString("id")),
-                    new UserName(rs.getString("name")),
-                    new UserPassword(rs.getString("password"))
-            );
+            while (rs.next()) {
+                user = new User(
+                        new UserId(rs.getString("id")),
+                        new UserName(rs.getString("name")),
+                        new UserPassword(rs.getString("password"))
+                );
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

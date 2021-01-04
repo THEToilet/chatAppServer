@@ -16,7 +16,7 @@ public class ChatStampPostInteractor implements ChatStampPostUseCase {
     private ChatRepository chatRepository;
     @Override
     public ChatStampPostOutputData handle(ChatStampPostInputData inputData) {
-        List<Message> messages = chatRepository.findAll(inputData.getRoomId());
+        //List<Message> messages = chatRepository.findAll(inputData.getRoomId());
         return new ChatStampPostOutputData();
     }
 }
