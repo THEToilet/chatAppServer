@@ -19,6 +19,6 @@ public class ChatMessageUpdateInteractor implements ChatMessageUpdateUseCase {
     @Override
     public ChatMessageUpdateOutputData handle(ChatMessageUpdateInputData inputData) {
         Optional<Chat> messages = chatRepository.find(inputData.getRoomId());
-        return new ChatMessageUpdateOutputData(messages.get().getMessageList());
+        return new ChatMessageUpdateOutputData(messages.get().getMessageMap());
     }
 }

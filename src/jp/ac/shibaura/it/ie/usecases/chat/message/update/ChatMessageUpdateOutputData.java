@@ -5,16 +5,19 @@ import jp.ac.shibaura.it.ie.usecases.core.OutputData;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChatMessageUpdateOutputData implements OutputData {
-    private LinkedHashMap<String, Message> messageList;
-    public ChatMessageUpdateOutputData(LinkedHashMap<String, Message> messageList) {
+    private Map<String, Message> messageList = new LinkedHashMap<String, Message>();
+
+    public ChatMessageUpdateOutputData(Map<String, Message> messageList) {
         this.messageList = messageList;
     }
 
-    private ChatMessageUpdateOutputData(){}
+    private ChatMessageUpdateOutputData() {
+    }
 
-    public LinkedHashMap<String, Message> getMessageList() {
+    public Map<String, Message> getMessageList() {
         return messageList;
     }
 }

@@ -7,6 +7,7 @@ import jp.ac.shibaura.it.ie.domain.application.chat.stamp.ChatStampPostInteracto
 import jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor;
 import jp.ac.shibaura.it.ie.log.LogUtils;
 import jp.ac.shibaura.it.ie.message.MessagePostRequest;
+import jp.ac.shibaura.it.ie.message.StampPostRequest;
 import jp.ac.shibaura.it.ie.usecases.chat.exit.ChatExitInputData;
 import jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostInputData;
 import jp.ac.shibaura.it.ie.usecases.chat.message.update.ChatMessageUpdateInputData;
@@ -14,6 +15,7 @@ import jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostInputData;
 import jp.ac.shibaura.it.ie.usecases.core.OutputData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -63,13 +65,16 @@ public class ChatController {
 
     @RequestMapping(value = "/{roomId}/{messageId}/stamp/post", method = RequestMethod.POST)
     @ResponseBody
-    public OutputData stampPost(@RequestHeader("session") String session, @RequestHeader("messageId") String messageId, @RequestHeader("roomId") String roomId, @RequestParam("stampId") String stampId) {
-        return chatStampPostInteractor.handle(new ChatStampPostInputData(session, roomId, messageId, stampId));
+    public ResponseEntity<String> stampPost(@RequestHeader("session") String session, @PathVariable ("messageId") String messageId, @PathVariable ("roomId") String roomId, @RequestBody StampPostRequest stampPostRequest) {
+        logger.info(stampPostRequest.getStampId());
+        logger.info(stampPostRequest.getUserName());
+        chatStampPostInteractor.handle(new ChatStampPostInputData(session, roomId, messageId, stampPostRequest));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{roomId}/exit", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<String> exit(@RequestHeader("session") String session, @RequestHeader("roomId") String roomId) {
+    public ResponseEntity<String> exit(@RequestHeader("session") String session, @PathVariable("roomId") String roomId) {
         chatExitInteractor.handle(new ChatExitInputData(session, roomId));
         return new ResponseEntity<>(HttpStatus.OK);
     }

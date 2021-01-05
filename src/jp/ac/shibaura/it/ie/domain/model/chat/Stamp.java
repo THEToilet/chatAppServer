@@ -15,4 +15,12 @@ public class Stamp {
     public String getStampId() {
         return stampId;
     }
+
+    public void setStampId(String stampId) {
+        this.stampId = stampId;
+    }
+
+    public void setPostedUser(String postedUser) {
+        this.postedUser = postedUser;
+    }
 }

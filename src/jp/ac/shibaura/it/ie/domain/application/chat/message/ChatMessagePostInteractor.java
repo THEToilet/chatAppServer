@@ -4,6 +4,7 @@ import jp.ac.shibaura.it.ie.config.Config;
 import jp.ac.shibaura.it.ie.domain.model.chat.Chat;
 import jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository;
 import jp.ac.shibaura.it.ie.domain.model.chat.Message;
+import jp.ac.shibaura.it.ie.domain.model.chat.Stamp;
 import jp.ac.shibaura.it.ie.domain.model.image.ImageRepository;
 import jp.ac.shibaura.it.ie.domain.model.imgur.ImgurData;
 import jp.ac.shibaura.it.ie.domain.model.room.Room;
@@ -24,6 +25,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -67,7 +70,8 @@ public class ChatMessagePostInteractor implements ChatMessagePostUseCase {
         Optional<Chat> chat = chatRepository.find(inputData.getRoomId());
         logger.info("Message/post" + inputData.getSession());
         Optional<User> user = userRepository.find(sessionRepository.find(inputData.getSession()).get());
-        chat.get().setMessage(messageId, new Message(messageId, user.get().getName().getValue(), response.getBody().getData().getLink(), inputData.getFileName(), inputData.getFileExtension()));
+        List<Stamp> stampList = new ArrayList<Stamp>();
+        chat.get().setMessage(messageId, new Message(messageId, user.get().getName().getValue(), response.getBody().getData().getLink(), inputData.getFileName(), inputData.getFileExtension(), stampList));
 
         return new ChatMessagePostOutputData();
     }

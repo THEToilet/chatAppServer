@@ -22,7 +22,7 @@ public class Chat {
         messages.replace(messageId,message);
     }
 
-    public LinkedHashMap<String, Message> getMessageList() {
+    public LinkedHashMap<String, Message> getMessageMap() {
         return messages;
     }
 }
