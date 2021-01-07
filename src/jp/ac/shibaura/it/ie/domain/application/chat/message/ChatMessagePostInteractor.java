@@ -66,7 +66,7 @@ public class ChatMessagePostInteractor implements ChatMessagePostUseCase {
         logger.info(response.getBody().getData().getLink());
 
         String messageId = UUID.randomUUID().toString();
-        imageRepository.save(roomRepository.find(inputData.getRoomId()).get().getCategoryId(), response.getBody().getData().getLink());
+        imageRepository.save(roomRepository.find(inputData.getRoomId()).get().getCategoryId(), response.getBody().getData().getLink(), inputData.getFileName(), inputData.getFileExtension());
         Optional<Chat> chat = chatRepository.find(inputData.getRoomId());
         logger.info("Message/post" + inputData.getSession());
         Optional<User> user = userRepository.find(sessionRepository.find(inputData.getSession()).get());

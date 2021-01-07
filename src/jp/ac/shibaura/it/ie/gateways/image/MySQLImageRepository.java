@@ -1,5 +1,6 @@
 package jp.ac.shibaura.it.ie.gateways.image;
 
+import jdk.nashorn.internal.runtime.regexp.joni.ast.StringNode;
 import jp.ac.shibaura.it.ie.domain.model.image.ImageRepository;
 import jp.ac.shibaura.it.ie.gateways.databese.MySQLComm;
 import jp.ac.shibaura.it.ie.log.LogUtils;
@@ -16,9 +17,9 @@ public class MySQLImageRepository implements ImageRepository {
     private LogUtils logger;
 
     @Override
-    public void save(String categoryId, String URL) {
+    public void save(String categoryId, String URL, String fileName, String fileExtension) {
         MySQLComm comm = MySQLComm.getInstance();
-        comm.sqlExecuteUpdate(String.format("insert into image(categoryId, url) values ('%s','%s');", categoryId, URL));
+        comm.sqlExecuteUpdate(String.format("insert into image(categoryId, url) values ('%s','%s', '%s', '%s');", categoryId, URL, fileName, fileExtension));
     }
 
 
@@ -26,7 +27,7 @@ public class MySQLImageRepository implements ImageRepository {
     public List<String> findAll(String categoryId) {
         List<String> imageList = new ArrayList<>();
         MySQLComm comm = MySQLComm.getInstance();
-        ResultSet rs = comm.sqlExecuteQuery(String.format("select * from image where categoryId = '%s';",categoryId));
+        ResultSet rs = comm.sqlExecuteQuery(String.format("select * from image where categoryId = '%s';", categoryId));
         try {
             while (rs.next()) {
                 imageList.add(rs.getString("url"));
