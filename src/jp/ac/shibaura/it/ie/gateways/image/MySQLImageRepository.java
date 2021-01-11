@@ -19,7 +19,7 @@ public class MySQLImageRepository implements ImageRepository {
     @Override
     public void save(String categoryId, String URL, String fileName, String fileExtension) {
         MySQLComm comm = MySQLComm.getInstance();
-        comm.sqlExecuteUpdate(String.format("insert into image(categoryId, url) values ('%s','%s', '%s', '%s');", categoryId, URL, fileName, fileExtension));
+        comm.sqlExecuteUpdate(String.format("insert into image(categoryId, url, fileName, fileExtension) values ('%s','%s', '%s', '%s');", categoryId, URL, fileName, fileExtension));
     }
 
 
