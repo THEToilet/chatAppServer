@@ -60,9 +60,24 @@ title __USER's Class Diagram__\n
   }
   
 
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.user {
+      class jp.ac.shibaura.it.ie.domain.model.user.UserSession {
+          - session : String
+          + UserSession()
+          + getId()
+          + getName()
+          + getSession()
+      }
+    }
+  }
+  
+
   jp.ac.shibaura.it.ie.domain.model.user.User o-- jp.ac.shibaura.it.ie.domain.model.user.UserId : id
   jp.ac.shibaura.it.ie.domain.model.user.User o-- jp.ac.shibaura.it.ie.domain.model.user.UserName : name
   jp.ac.shibaura.it.ie.domain.model.user.User o-- jp.ac.shibaura.it.ie.domain.model.user.UserPassword : pass
+  jp.ac.shibaura.it.ie.domain.model.user.UserSession o-- jp.ac.shibaura.it.ie.domain.model.user.UserId : id
+  jp.ac.shibaura.it.ie.domain.model.user.UserSession o-- jp.ac.shibaura.it.ie.domain.model.user.UserName : name
 
 
 right footer

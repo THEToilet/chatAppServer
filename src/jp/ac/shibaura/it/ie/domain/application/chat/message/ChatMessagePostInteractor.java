@@ -1,5 +1,6 @@
 package jp.ac.shibaura.it.ie.domain.application.chat.message;
 
+import com.sun.scenario.effect.ImageData;
 import jp.ac.shibaura.it.ie.config.Config;
 import jp.ac.shibaura.it.ie.domain.model.chat.Chat;
 import jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository;
@@ -44,34 +45,33 @@ public class ChatMessagePostInteractor implements ChatMessagePostUseCase {
     private SessionRepository sessionRepository;
 
     @Autowired
+    private ImagePostInteractor imagePostInteractor;
+
+    @Autowired
     private LogUtils logger;
 
     @Override
     public ChatMessagePostOutputData handle(ChatMessagePostInputData inputData) {
-        RestTemplate restTemplate = new RestTemplate();
-
-        // header設定
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "Client-ID " + Config.get().getClientId());
-
-        // body設定
-        MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
-        body.add("image", inputData.getImageSource());
-
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(body, headers);
-        logger.info("chat/message/post" + request.toString());
-
-        ResponseEntity<ImgurData> response = restTemplate.postForEntity("https://api.imgur.com/3/image", request, ImgurData.class);
-        logger.info(response.toString());
-        logger.info(response.getBody().getData().getLink());
-
+        ImgurData imgurData = imagePostInteractor.handle(inputData.getImageSource());
         String messageId = UUID.randomUUID().toString();
-        imageRepository.save(roomRepository.find(inputData.getRoomId()).get().getCategoryId(), response.getBody().getData().getLink(), inputData.getFileName(), inputData.getFileExtension());
-        Optional<Chat> chat = chatRepository.find(inputData.getRoomId());
+        Optional<Room> roomOptional = roomRepository.find(inputData.getRoomId());
+        if(!roomOptional.isPresent()){
+            throw new RuntimeException();
+        }
+        imageRepository.save(roomOptional.get().getCategoryId(), imgurData.getData().getLink(), inputData.getFileName(), inputData.getFileExtension());
+
+        Optional<Chat> chatOptional = chatRepository.find(inputData.getRoomId());
+        if(!chatOptional.isPresent()){
+            throw new RuntimeException();
+        }
         logger.info("Message/post" + inputData.getSession());
-        Optional<User> user = userRepository.find(sessionRepository.find(inputData.getSession()).get());
+        Optional<User> userOptional = userRepository.find(sessionRepository.find(inputData.getSession()).get());
+        if(!userOptional.isPresent()){
+            throw new RuntimeException();
+        }
         List<Stamp> stampList = new ArrayList<Stamp>();
-        chat.get().setMessage(messageId, new Message(messageId, user.get().getName().getValue(), response.getBody().getData().getLink(), inputData.getFileName(), inputData.getFileExtension(), stampList));
+        // TODO : ここでクソエラー出る
+        chatOptional.get().setMessage(messageId, new Message(messageId, userOptional.get().getName().getValue(), imgurData.getData().getLink(), inputData.getFileName(), inputData.getFileExtension(), stampList));
 
         return new ChatMessagePostOutputData();
     }

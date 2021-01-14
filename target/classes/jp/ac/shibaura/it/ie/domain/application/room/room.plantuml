@@ -4,15 +4,6 @@ title __ROOM's Class Diagram__\n
 
   namespace jp.ac.shibaura.it.ie {
     namespace domain.application.room {
-      class jp.ac.shibaura.it.ie.domain.application.room.RoomExitInteractor {
-          + handle()
-      }
-    }
-  }
-  
-
-  namespace jp.ac.shibaura.it.ie {
-    namespace domain.application.room {
       class jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor {
           + handle()
       }
@@ -20,21 +11,11 @@ title __ROOM's Class Diagram__\n
   }
   
 
-  namespace jp.ac.shibaura.it.ie {
-    namespace domain.application.room {
-      class jp.ac.shibaura.it.ie.domain.application.room.RoomWaitInteractor {
-          + handle()
-      }
-    }
-  }
-  
-
-  jp.ac.shibaura.it.ie.domain.application.room.RoomExitInteractor .up.|> jp.ac.shibaura.it.ie.usecases.room.exit.RoomExitUseCase
-  jp.ac.shibaura.it.ie.domain.application.room.RoomExitInteractor o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
   jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor .up.|> jp.ac.shibaura.it.ie.usecases.room.start.RoomStartUseCase
-  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.domain.model.user.UserRepository : userRepository
-  jp.ac.shibaura.it.ie.domain.application.room.RoomWaitInteractor .up.|> jp.ac.shibaura.it.ie.usecases.room.wait.RoomWaitUseCase
-  jp.ac.shibaura.it.ie.domain.application.room.RoomWaitInteractor o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository : chatRepository
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.domain.model.session.SessionRepository : sessionRepository
 
 
 right footer

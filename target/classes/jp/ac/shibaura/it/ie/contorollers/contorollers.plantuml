@@ -4,28 +4,11 @@ title __CONTOROLLERS's Class Diagram__\n
 
   namespace jp.ac.shibaura.it.ie {
     namespace contorollers {
-      class jp.ac.shibaura.it.ie.contorollers.AuthController {
-          + entry()
-          + login()
-          + logout()
-      }
-    }
-  }
-  
-
-  namespace jp.ac.shibaura.it.ie {
-    namespace contorollers {
-      class jp.ac.shibaura.it.ie.contorollers.CategoryContoroller {
-          + categoryJoin()
-          + categoryList()
-      }
-    }
-  }
-  
-
-  namespace jp.ac.shibaura.it.ie {
-    namespace contorollers {
-      class jp.ac.shibaura.it.ie.contorollers.ImageContoroller {
+      class jp.ac.shibaura.it.ie.contorollers.ChatController {
+          + exit()
+          + messagePost()
+          + messageUpdate()
+          + stampPost()
       }
     }
   }
@@ -34,40 +17,21 @@ title __CONTOROLLERS's Class Diagram__\n
   namespace jp.ac.shibaura.it.ie {
     namespace contorollers {
       class jp.ac.shibaura.it.ie.contorollers.RoomController {
-          + roomExit()
           + roomJoin()
-          + roomWait()
       }
     }
   }
   
 
-  namespace jp.ac.shibaura.it.ie {
-    namespace contorollers {
-      class jp.ac.shibaura.it.ie.contorollers.UserController {
-          + userUpdate()
-      }
-    }
-  }
-  
-
-  jp.ac.shibaura.it.ie.contorollers.AuthController o-- jp.ac.shibaura.it.ie.domain.application.auth.AuthEntryInteractor : authEntryInteractor
-  jp.ac.shibaura.it.ie.contorollers.AuthController o-- jp.ac.shibaura.it.ie.domain.application.auth.AuthLoginInteractor : authLoginInteractor
-  jp.ac.shibaura.it.ie.contorollers.AuthController o-- jp.ac.shibaura.it.ie.domain.application.auth.AuthLogoutInteractor : authLogoutInteractor
-  jp.ac.shibaura.it.ie.contorollers.AuthController o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
-  jp.ac.shibaura.it.ie.contorollers.AuthController o-- jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor : sessionInteractor
-  jp.ac.shibaura.it.ie.contorollers.CategoryContoroller o-- jp.ac.shibaura.it.ie.domain.application.category.CategoryJoinInteractor : categoryJoinInteractor
-  jp.ac.shibaura.it.ie.contorollers.CategoryContoroller o-- jp.ac.shibaura.it.ie.domain.application.category.CategoryListInteractor : categoryListInteractor
-  jp.ac.shibaura.it.ie.contorollers.CategoryContoroller o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
-  jp.ac.shibaura.it.ie.contorollers.CategoryContoroller o-- jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor : sessionInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.ChatExitInteractor : chatExitInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor : chatMessagePostInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessageUpdateInteractor : chatMessageUpdateInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.stamp.ChatStampPostInteractor : chatStampPostInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor : sessionInteractor
   jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
-  jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.domain.application.room.RoomExitInteractor : roomExitInteractor
   jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor : roomStartInteractor
-  jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.domain.application.room.RoomWaitInteractor : roomWaitInteractor
   jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor : sessionInteractor
-  jp.ac.shibaura.it.ie.contorollers.UserController o-- jp.ac.shibaura.it.ie.domain.application.user.UserUpdateInteractor : userUpdateInteractor
-  jp.ac.shibaura.it.ie.contorollers.UserController o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
-  jp.ac.shibaura.it.ie.contorollers.UserController o-- jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor : sessionInteractor
 
 
 right footer

@@ -6,12 +6,9 @@ title __START's Class Diagram__\n
     namespace usecases.room.start {
       class jp.ac.shibaura.it.ie.usecases.room.start.RoomStartInputData {
           - roomId : String
-          - session : String
-          - userId : String
           + RoomStartInputData()
           + getRoomId()
-          + getSession()
-          + getUserId()
+          + getRoomStartData()
       }
     }
   }
@@ -20,10 +17,7 @@ title __START's Class Diagram__\n
   namespace jp.ac.shibaura.it.ie {
     namespace usecases.room.start {
       class jp.ac.shibaura.it.ie.usecases.room.start.RoomStartOutputData {
-          - userId : String
           + RoomStartOutputData()
-          + getUserId()
-          - RoomStartOutputData()
       }
     }
   }
@@ -38,6 +32,7 @@ title __START's Class Diagram__\n
   
 
   jp.ac.shibaura.it.ie.usecases.room.start.RoomStartInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.room.start.RoomStartInputData o-- jp.ac.shibaura.it.ie.usecases.room.start.data.RoomStartData : roomStartData
   jp.ac.shibaura.it.ie.usecases.room.start.RoomStartOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
 
 

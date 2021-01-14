@@ -4,15 +4,6 @@ title __USER's Class Diagram__\n
 
   namespace jp.ac.shibaura.it.ie {
     namespace domain.application.user {
-      class jp.ac.shibaura.it.ie.domain.application.user.UserAddInteractor {
-          + handle()
-      }
-    }
-  }
-  
-
-  namespace jp.ac.shibaura.it.ie {
-    namespace domain.application.user {
       class jp.ac.shibaura.it.ie.domain.application.user.UserUpdateInteractor {
           + handle()
       }
@@ -20,8 +11,6 @@ title __USER's Class Diagram__\n
   }
   
 
-  jp.ac.shibaura.it.ie.domain.application.user.UserAddInteractor .up.|> jp.ac.shibaura.it.ie.usecases.user.add.UserAddUseCase
-  jp.ac.shibaura.it.ie.domain.application.user.UserAddInteractor o-- jp.ac.shibaura.it.ie.domain.model.user.UserRepository : userRepository
   jp.ac.shibaura.it.ie.domain.application.user.UserUpdateInteractor .up.|> jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateUseCase
   jp.ac.shibaura.it.ie.domain.application.user.UserUpdateInteractor o-- jp.ac.shibaura.it.ie.domain.model.user.UserRepository : userRepository
 

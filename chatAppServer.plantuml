@@ -1,0 +1,639 @@
+@startuml
+
+title __CHATAPPSERVER's Class Diagram__\n
+
+  namespace jp.ac.shibaura.it.ie {
+    class jp.ac.shibaura.it.ie.Main {
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace config {
+      class jp.ac.shibaura.it.ie.config.Config {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace contorollers {
+      class jp.ac.shibaura.it.ie.contorollers.ChatController {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace contorollers {
+      class jp.ac.shibaura.it.ie.contorollers.RoomController {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.application.chat {
+      class jp.ac.shibaura.it.ie.domain.application.chat.ChatExitInteractor {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.application.chat {
+      namespace message {
+        class jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor {
+        }
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.application.chat {
+      namespace message {
+        class jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessageUpdateInteractor {
+        }
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.application.chat {
+      namespace stamp {
+        class jp.ac.shibaura.it.ie.domain.application.chat.stamp.ChatStampPostInteractor {
+        }
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.application.room {
+      class jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.application.session {
+      class jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.application.user {
+      class jp.ac.shibaura.it.ie.domain.application.user.UserUpdateInteractor {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.category {
+      class jp.ac.shibaura.it.ie.domain.model.category.Category {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.category {
+      interface jp.ac.shibaura.it.ie.domain.model.category.CategoryRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.chat {
+      class jp.ac.shibaura.it.ie.domain.model.chat.Chat {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.chat {
+      interface jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.chat {
+      class jp.ac.shibaura.it.ie.domain.model.chat.Message {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.chat {
+      class jp.ac.shibaura.it.ie.domain.model.chat.Stamp {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.image {
+      class jp.ac.shibaura.it.ie.domain.model.image.Image {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.image {
+      interface jp.ac.shibaura.it.ie.domain.model.image.ImageRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.imgur {
+      class jp.ac.shibaura.it.ie.domain.model.imgur.Data {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.imgur {
+      class jp.ac.shibaura.it.ie.domain.model.imgur.ImgurData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.room {
+      class jp.ac.shibaura.it.ie.domain.model.room.Room {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.room {
+      interface jp.ac.shibaura.it.ie.domain.model.room.RoomRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.session {
+      interface jp.ac.shibaura.it.ie.domain.model.session.SessionRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.user {
+      class jp.ac.shibaura.it.ie.domain.model.user.User {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.user {
+      class jp.ac.shibaura.it.ie.domain.model.user.UserId {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.user {
+      class jp.ac.shibaura.it.ie.domain.model.user.UserName {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.user {
+      class jp.ac.shibaura.it.ie.domain.model.user.UserPassword {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.user {
+      interface jp.ac.shibaura.it.ie.domain.model.user.UserRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace domain.model.user {
+      class jp.ac.shibaura.it.ie.domain.model.user.UserSession {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace gateways.category {
+      class jp.ac.shibaura.it.ie.gateways.category.MySQLCategoryRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace gateways.chat {
+      class jp.ac.shibaura.it.ie.gateways.chat.InMemoryChatRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace gateways.databese {
+      class jp.ac.shibaura.it.ie.gateways.databese.MySQLComm {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace gateways.image {
+      class jp.ac.shibaura.it.ie.gateways.image.MySQLImageRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace gateways.room {
+      class jp.ac.shibaura.it.ie.gateways.room.InMemoryRoomRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace gateways.session {
+      class jp.ac.shibaura.it.ie.gateways.session.InMemorySessionRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace gateways.user {
+      class jp.ac.shibaura.it.ie.gateways.user.MySQLUserRepository {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace log {
+      class jp.ac.shibaura.it.ie.log.LogUtils {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace message {
+      class jp.ac.shibaura.it.ie.message.MessagePostRequest {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace message {
+      class jp.ac.shibaura.it.ie.message.StampPostRequest {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace test {
+      class jp.ac.shibaura.it.ie.test.ChatTest {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace test {
+      class jp.ac.shibaura.it.ie.test.ConfigTest {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace test {
+      class jp.ac.shibaura.it.ie.test.HttpLobbyTest {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.exit {
+      class jp.ac.shibaura.it.ie.usecases.chat.exit.ChatExitInputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.exit {
+      class jp.ac.shibaura.it.ie.usecases.chat.exit.ChatExitOutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.exit {
+      interface jp.ac.shibaura.it.ie.usecases.chat.exit.ChatExitUseCase {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.message.post {
+      class jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostInputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.message.post {
+      class jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostOutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.message.post {
+      interface jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostUseCase {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.message.update {
+      class jp.ac.shibaura.it.ie.usecases.chat.message.update.ChatMessageUpdateInputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.message.update {
+      class jp.ac.shibaura.it.ie.usecases.chat.message.update.ChatMessageUpdateOutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.message.update {
+      interface jp.ac.shibaura.it.ie.usecases.chat.message.update.ChatMessageUpdateUseCase {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.stamp {
+      class jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostInputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.stamp {
+      class jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostOutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.chat.stamp {
+      interface jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostUseCase {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.core {
+      interface jp.ac.shibaura.it.ie.usecases.core.InputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.core {
+      interface jp.ac.shibaura.it.ie.usecases.core.OutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.core {
+      interface jp.ac.shibaura.it.ie.usecases.core.UseCase {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.room.start {
+      class jp.ac.shibaura.it.ie.usecases.room.start.RoomStartInputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.room.start {
+      class jp.ac.shibaura.it.ie.usecases.room.start.RoomStartOutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.room.start {
+      interface jp.ac.shibaura.it.ie.usecases.room.start.RoomStartUseCase {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.room.start {
+      namespace data {
+        class jp.ac.shibaura.it.ie.usecases.room.start.data.RoomStartData {
+        }
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.room.start {
+      namespace data {
+        class jp.ac.shibaura.it.ie.usecases.room.start.data.RoomStartUserData {
+        }
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.session {
+      class jp.ac.shibaura.it.ie.usecases.session.SessionInputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.session {
+      class jp.ac.shibaura.it.ie.usecases.session.SessionOutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.session {
+      interface jp.ac.shibaura.it.ie.usecases.session.SessionUseCase {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.user.update {
+      class jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateInputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.user.update {
+      class jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateOutputData {
+      }
+    }
+  }
+  
+
+  namespace jp.ac.shibaura.it.ie {
+    namespace usecases.user.update {
+      interface jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateUseCase {
+      }
+    }
+  }
+  
+
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.ChatExitInteractor : chatExitInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor : chatMessagePostInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessageUpdateInteractor : chatMessageUpdateInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.chat.stamp.ChatStampPostInteractor : chatStampPostInteractor
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.contorollers.ChatController o-- jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor : sessionInteractor
+  jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor : roomStartInteractor
+  jp.ac.shibaura.it.ie.contorollers.RoomController o-- jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor : sessionInteractor
+  jp.ac.shibaura.it.ie.domain.application.chat.ChatExitInteractor .up.|> jp.ac.shibaura.it.ie.usecases.chat.exit.ChatExitUseCase
+  jp.ac.shibaura.it.ie.domain.application.chat.ChatExitInteractor o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.ChatExitInteractor o-- jp.ac.shibaura.it.ie.domain.model.session.SessionRepository : sessionRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor .up.|> jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostUseCase
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor o-- jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository : chatRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor o-- jp.ac.shibaura.it.ie.domain.model.image.ImageRepository : imageRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor o-- jp.ac.shibaura.it.ie.domain.model.session.SessionRepository : sessionRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessagePostInteractor o-- jp.ac.shibaura.it.ie.domain.model.user.UserRepository : userRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessageUpdateInteractor .up.|> jp.ac.shibaura.it.ie.usecases.chat.message.update.ChatMessageUpdateUseCase
+  jp.ac.shibaura.it.ie.domain.application.chat.message.ChatMessageUpdateInteractor o-- jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository : chatRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.stamp.ChatStampPostInteractor .up.|> jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostUseCase
+  jp.ac.shibaura.it.ie.domain.application.chat.stamp.ChatStampPostInteractor o-- jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository : chatRepository
+  jp.ac.shibaura.it.ie.domain.application.chat.stamp.ChatStampPostInteractor o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor .up.|> jp.ac.shibaura.it.ie.usecases.room.start.RoomStartUseCase
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository : chatRepository
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
+  jp.ac.shibaura.it.ie.domain.application.room.RoomStartInteractor o-- jp.ac.shibaura.it.ie.domain.model.session.SessionRepository : sessionRepository
+  jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor .up.|> jp.ac.shibaura.it.ie.usecases.session.SessionUseCase
+  jp.ac.shibaura.it.ie.domain.application.session.SessionInteractor o-- jp.ac.shibaura.it.ie.domain.model.session.SessionRepository : sessionRepository
+  jp.ac.shibaura.it.ie.domain.application.user.UserUpdateInteractor .up.|> jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateUseCase
+  jp.ac.shibaura.it.ie.domain.application.user.UserUpdateInteractor o-- jp.ac.shibaura.it.ie.domain.model.user.UserRepository : userRepository
+  jp.ac.shibaura.it.ie.domain.model.imgur.ImgurData o-- jp.ac.shibaura.it.ie.domain.model.imgur.Data : data
+  jp.ac.shibaura.it.ie.domain.model.room.Room o-- jp.ac.shibaura.it.ie.domain.model.room.RoomRepository : roomRepository
+  jp.ac.shibaura.it.ie.domain.model.user.User o-- jp.ac.shibaura.it.ie.domain.model.user.UserId : id
+  jp.ac.shibaura.it.ie.domain.model.user.User o-- jp.ac.shibaura.it.ie.domain.model.user.UserName : name
+  jp.ac.shibaura.it.ie.domain.model.user.User o-- jp.ac.shibaura.it.ie.domain.model.user.UserPassword : pass
+  jp.ac.shibaura.it.ie.domain.model.user.UserSession o-- jp.ac.shibaura.it.ie.domain.model.user.UserId : id
+  jp.ac.shibaura.it.ie.domain.model.user.UserSession o-- jp.ac.shibaura.it.ie.domain.model.user.UserName : name
+  jp.ac.shibaura.it.ie.gateways.category.MySQLCategoryRepository .up.|> jp.ac.shibaura.it.ie.domain.model.category.CategoryRepository
+  jp.ac.shibaura.it.ie.gateways.chat.InMemoryChatRepository .up.|> jp.ac.shibaura.it.ie.domain.model.chat.ChatRepository
+  jp.ac.shibaura.it.ie.gateways.databese.MySQLComm o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.gateways.image.MySQLImageRepository .up.|> jp.ac.shibaura.it.ie.domain.model.image.ImageRepository
+  jp.ac.shibaura.it.ie.gateways.image.MySQLImageRepository o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.gateways.room.InMemoryRoomRepository .up.|> jp.ac.shibaura.it.ie.domain.model.room.RoomRepository
+  jp.ac.shibaura.it.ie.gateways.session.InMemorySessionRepository .up.|> jp.ac.shibaura.it.ie.domain.model.session.SessionRepository
+  jp.ac.shibaura.it.ie.gateways.user.MySQLUserRepository .up.|> jp.ac.shibaura.it.ie.domain.model.user.UserRepository
+  jp.ac.shibaura.it.ie.gateways.user.MySQLUserRepository o-- jp.ac.shibaura.it.ie.log.LogUtils : logger
+  jp.ac.shibaura.it.ie.usecases.chat.exit.ChatExitInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.chat.exit.ChatExitOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
+  jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.chat.message.post.ChatMessagePostOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
+  jp.ac.shibaura.it.ie.usecases.chat.message.update.ChatMessageUpdateInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.chat.message.update.ChatMessageUpdateOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
+  jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostInputData o-- jp.ac.shibaura.it.ie.message.StampPostRequest : stampPostRequest
+  jp.ac.shibaura.it.ie.usecases.chat.stamp.ChatStampPostOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
+  jp.ac.shibaura.it.ie.usecases.room.start.RoomStartInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.room.start.RoomStartInputData o-- jp.ac.shibaura.it.ie.usecases.room.start.data.RoomStartData : roomStartData
+  jp.ac.shibaura.it.ie.usecases.room.start.RoomStartOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
+  jp.ac.shibaura.it.ie.usecases.session.SessionInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.session.SessionOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
+  jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateInputData .up.|> jp.ac.shibaura.it.ie.usecases.core.InputData
+  jp.ac.shibaura.it.ie.usecases.user.update.UserUpdateOutputData .up.|> jp.ac.shibaura.it.ie.usecases.core.OutputData
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

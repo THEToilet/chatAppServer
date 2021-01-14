@@ -9,6 +9,7 @@ title __CONFIG's Class Diagram__\n
           - store : Map<String, String>
           + Config()
           {static} + get()
+          + getClientId()
           + getDBName()
           + getDBPassword()
           + getDBPort()
