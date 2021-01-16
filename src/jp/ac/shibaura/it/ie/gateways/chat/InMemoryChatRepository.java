@@ -12,9 +12,10 @@ import java.util.Optional;
 @Component
 public class InMemoryChatRepository implements ChatRepository {
     private Map<String, Chat> chatMap = new LinkedHashMap<>();
+
     @Override
     public void save(String roomId, Chat chat) {
-        chatMap.put(roomId,chat);
+        chatMap.put(roomId, chat);
     }
 
     @Override

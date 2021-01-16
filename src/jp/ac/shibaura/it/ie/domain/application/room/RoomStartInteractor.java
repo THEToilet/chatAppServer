@@ -31,11 +31,12 @@ public class RoomStartInteractor implements RoomStartUseCase {
     public RoomStartOutputData handle(RoomStartInputData inputData) {
         RoomStartData roomStartData = inputData.getRoomStartData();
         Room room = new Room(inputData.getRoomId(), inputData.getRoomStartData().getCategoryId());
-        roomRepository.save(room);
         for (int i = 0; i < inputData.getRoomStartData().getUsers().size(); i++) {
+            room.joinRoom(inputData.getRoomStartData().getUsers().get(i).getSession());
             sessionRepository.save(inputData.getRoomStartData().getUsers().get(i).getSession(), inputData.getRoomStartData().getUsers().get(i).getUserId());
             logger.info("room/start" + inputData.getRoomStartData().getUsers().get(i).getSession() + ":" + inputData.getRoomStartData().getUsers().get(i).getUserId());
         }
+        roomRepository.save(room);
         chatRepository.save(inputData.getRoomId(), new Chat(inputData.getRoomId()));
 
         return new RoomStartOutputData();

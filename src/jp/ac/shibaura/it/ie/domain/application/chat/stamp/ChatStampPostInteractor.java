@@ -23,8 +23,11 @@ public class ChatStampPostInteractor implements ChatStampPostUseCase {
 
     @Override
     public ChatStampPostOutputData handle(ChatStampPostInputData inputData) {
-        Optional<Chat> chat = chatRepository.find(inputData.getRoomId());
-        Message message = chat.get().getMessageMap().get(inputData.getMessageId());
+        Optional<Chat> chatOptional = chatRepository.find(inputData.getRoomId());
+        if(!chatOptional.isPresent()){
+            throw new RuntimeException();
+        }
+        Message message = chatOptional.get().getMessageMap().get(inputData.getMessageId());
         message.getStampList().add(new Stamp(inputData.getStampPostRequest().getUserName(), inputData.getStampPostRequest().getStampId()));
         return new ChatStampPostOutputData();
     }

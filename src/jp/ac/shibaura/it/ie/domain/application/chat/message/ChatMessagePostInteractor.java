@@ -58,6 +58,7 @@ public class ChatMessagePostInteractor implements ChatMessagePostUseCase {
         if(!roomOptional.isPresent()){
             throw new RuntimeException();
         }
+        // TODO : エラーここ
         imageRepository.save(roomOptional.get().getCategoryId(), imgurData.getData().getLink(), inputData.getFileName(), inputData.getFileExtension());
 
         Optional<Chat> chatOptional = chatRepository.find(inputData.getRoomId());

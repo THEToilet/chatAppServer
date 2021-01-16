@@ -56,6 +56,7 @@ public class MySQLUserRepository implements UserRepository {
         ResultSet rs = comm.sqlExecuteQuery(String.format("select * from user where id = '%s';", userId));
         User user = null;
         try {
+            // TODO : error
             while (rs.next()) {
                 user = new User(
                         new UserId(rs.getString("id")),

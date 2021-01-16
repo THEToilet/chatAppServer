@@ -6,7 +6,7 @@
 
     <groupId>jp.ac.shibaura.it.ie</groupId>
     <artifactId>chatAppServer</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
